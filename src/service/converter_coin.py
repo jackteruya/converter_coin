@@ -1,6 +1,7 @@
 from src.domain.coins import Coins
 from src.interface.coin_api_repository_interface import CoinApiRepositoryInterface
 from src.interface.cripto_api_repository_interface import CriptoApiRepositoryInterface
+from src.service.data_converter_dto import DataConverterDTO
 
 
 class ConversorCoin:
@@ -18,7 +19,12 @@ class ConversorCoin:
         if self.validation_param():
             return "Error: the to and from parameters are required"
         coin = self.treat_data(self._from)
-        return amount * coin.__getattribute__(self._to)
+        return DataConverterDTO(
+            from_=self._from,
+            amount_from=amount,
+            to_=self._to,
+            amount_to=amount * coin.__getattribute__(self._to),
+        )
 
     def set_from(self, value: str):
         self._from = value
