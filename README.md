@@ -57,3 +57,5 @@ Decisões tecnicas:
 - Foi incluido algumas tecnologias de padronização de codigo e um pré-commit para garantir a qualidade da aplicação,
   passando pelo black para formata o código, flake8 para checa o estilo e qualidade, validação dos requirements e por 
   fim validação dos testes;
+- Ficou faltando tirar do código as variaveis de links externo e configurações, para passar para um
+  arquivo .env ou um .tmol
