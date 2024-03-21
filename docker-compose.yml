@@ -1,0 +1,8 @@
+services:
+  api:
+    image: api_coin
+    build:
+      context: .
+    command: sh -c "gunicorn app_api.wsgi:application --bind 0.0.0.0:8000"
+    ports:
+      - 8000:8000
